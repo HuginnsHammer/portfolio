@@ -1,0 +1,1 @@
+document.documentElement.classList.add("js-ready");document.querySelectorAll("[data-year]").forEach((node)=>{node.textContent=String(new Date().getFullYear())});
