@@ -1,0 +1,66 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+6 0 obj
+<< /Length 2568 >>
+stream
+BT /F2 23 Tf 48 748 Td (Edward Mwaura) Tj ET
+BT /F2 10 Tf 48 727 Td (COMPUTER SECURITY AND FORENSICS | CYBERSECURITY ATTACHMENT) Tj ET
+BT /F1 9 Tf 48 708 Td (Kenya  |  edwardmugo@proton.me  |  github.com/HuginnsHammer) Tj ET
+BT /F1 9 Tf 48 695 Td (linkedin.com/in/edwardmugo) Tj ET
+0.6 w 48 682 m 564 682 l S
+BT /F2 12 Tf 48 661 Td (PROFILE) Tj ET
+BT /F1 9 Tf 48 645 Td (Computer Security and Forensics student at Meru University of Science and Technology.) Tj ET
+BT /F1 9 Tf 48 631 Td (Interested in security engineering, infrastructure security, and AI application security.) Tj ET
+BT /F2 12 Tf 48 615 Td (EDUCATION) Tj ET
+BT /F2 10 Tf 48 599 Td (Bachelor of Science in Computer Security and Forensics) Tj ET
+BT /F1 9 Tf 48 585 Td (Meru University of Science and Technology, Kenya) Tj ET
+BT /F2 12 Tf 48 565 Td (SELECTED PROJECTS) Tj ET
+BT /F2 10 Tf 48 548 Td (LLMShield - AI application security gateway) Tj ET
+BT /F1 9 Tf 58 533 Td (- Built a FastAPI gateway prototype with heuristic checks for prompt injection, PII, and) Tj ET
+BT /F1 9 Tf 68 520 Td (selected secret formats; added policy decisions and response inspection.) Tj ET
+BT /F1 9 Tf 58 505 Td (- Added a deterministic mock provider, SQLite audit metadata, optional API-key checks,) Tj ET
+BT /F1 9 Tf 68 492 Td (a React dashboard, Docker Compose setup, tests, linting, and CI frontend build.) Tj ET
+BT /F2 10 Tf 48 473 Td (CloudSentry - static configuration scanner) Tj ET
+BT /F1 9 Tf 58 458 Td (- Implemented 10 documented rule IDs across Terraform, Dockerfiles, and Compose.) Tj ET
+BT /F1 9 Tf 58 445 Td (- Findings include severity, evidence, source location, impact, and remediation.) Tj ET
+BT /F1 9 Tf 58 432 Td (- Added positive/negative tests and CI for Python 3.12/3.13, lint, and frontend build.) Tj ET
+BT /F2 10 Tf 48 413 Td (Fibonacci algorithms - C++ team coursework) Tj ET
+BT /F1 9 Tf 58 398 Td (- Compared recursive, iterative, and memoized Fibonacci implementations and timing.) Tj ET
+BT /F2 12 Tf 48 376 Td (TECHNICAL SKILLS) Tj ET
+BT /F1 9 Tf 48 360 Td (Languages: Python, C++, HTML, CSS, JavaScript/TypeScript) Tj ET
+BT /F1 9 Tf 48 346 Td (Tools: Linux, Git/GitHub, FastAPI, pytest, Docker, Terraform review, Nmap, Wireshark/tshark,) Tj ET
+BT /F1 9 Tf 48 333 Td (Ghidra, YARA) Tj ET
+BT /F2 12 Tf 48 310 Td (INTERESTS) Tj ET
+BT /F1 9 Tf 48 294 Td (Security engineering, cloud and infrastructure security, AI application security, digital forensics.) Tj ET
+0.6 w 48 276 m 564 276 l S
+BT /F1 8 Tf 48 258 Td (Project status and limitations are documented in the linked repositories.) Tj ET
+endstream
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000000321 00000 n 
+0000000396 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+3015
+%%EOF
