@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "projects": {
+    "llmshield": {
+      "schema_version": 1,
+      "slug": "llmshield",
+      "title": "LLMShield",
+      "repository": "HuginnsHammer/LLMShield",
+      "summary": "A security gateway prototype that inspects messages, applies configurable policy decisions, and records audit metadata without storing raw prompts or responses by default.",
+      "capabilities": [
+        "FastAPI chat endpoint with an OpenAI-style, non-streaming response envelope.",
+        "Heuristic checks for selected prompt-injection phrases, email and phone patterns, and selected secret formats, including common Unicode obfuscation.",
+        "Validated YAML policy configuration with allow, redact, block, and review actions, plus enforce and monitor modes.",
+        "Local deterministic mock provider; external model forwarding is disabled by default.",
+        "SQLite metadata-only audit events and an authenticated operational metrics endpoint summarizing recent decisions, finding categories, and severities.",
+        "React dashboard, Docker Compose setup, regression tests, and a synthetic evaluation harness."
+      ],
+      "evidence": [
+        "Repository README documents setup, architecture, policy configuration, evaluation, and limitations.",
+        "The synthetic evaluation reports precision, recall, false-positive rate, and false-negative rate per detector category; its small synthetic dataset is diagnostic, not a real-world benchmark."
+      ],
+      "limitations": [
+        "Detection is heuristic and can miss attacks or flag benign text.",
+        "Real provider forwarding, streaming, and a human-review queue are not implemented.",
+        "Redaction is not complete anonymization; shared-key authentication is a baseline rather than a full identity system."
+      ],
+      "latest_commit": {
+        "sha": "ba6321fd7da8b780211cb4a0f428438818e20863",
+        "short_sha": "ba6321f",
+        "date": "2026-10-24T19:21:38Z",
+        "url": "https://github.com/HuginnsHammer/LLMShield/commit/ba6321fd7da8b780211cb4a0f428438818e20863"
+      },
+      "source_url": "https://github.com/HuginnsHammer/LLMShield/blob/main/PORTFOLIO.json"
+    },
+    "cloudsentry": {
+      "schema_version": 1,
+      "slug": "cloudsentry",
+      "title": "CloudSentry",
+      "repository": "HuginnsHammer/CloudSentry",
+      "summary": "A local-first static configuration auditor for selected security patterns in Terraform, Dockerfiles, and Docker Compose.",
+      "capabilities": [
+        "Ten documented rule IDs across Terraform, Dockerfiles, and Docker Compose.",
+        "Findings include severity, confidence, evidence, impact, remediation, fingerprints, and source locations.",
+        "CLI reports in text, JSON, and SARIF 2.1.0, plus a local FastAPI API and React + TypeScript dashboard.",
+        "SARIF invocation diagnostics preserve scan warnings and errors; machine-readable reports retain suppression justifications.",
+        "Dashboard distinguishes Complete, Partial, and Error scans, supports search and severity filtering, and allows suppressed findings to be inspected.",
+        "Reason-required, narrow suppressions; incomplete scans take exit code 2 rather than being presented as clean."
+      ],
+      "evidence": [
+        "Repository README documents CLI usage, dashboard setup, exit codes, responsible use, and limitations.",
+        "Regression tests cover SARIF output, suppression behavior, source attribution, and CLI integration paths."
+      ],
+      "limitations": [
+        "Static checks are heuristic and need contextual review; a clean scan does not prove a configuration is secure.",
+        "Terraform checks do not resolve variables, locals, modules, dynamic blocks, provider defaults, or effective permissions.",
+        "The dashboard API accepts local filesystem paths and should remain bound to loopback for local development."
+      ],
+      "latest_commit": {
+        "sha": "872618e1a841998d6bb437da29df8b69898c9bd4",
+        "short_sha": "872618e",
+        "date": "2026-10-24T19:21:41Z",
+        "url": "https://github.com/HuginnsHammer/CloudSentry/commit/872618e1a841998d6bb437da29df8b69898c9bd4"
+      },
+      "source_url": "https://github.com/HuginnsHammer/CloudSentry/blob/main/PORTFOLIO.json"
+    }
+  }
+}
