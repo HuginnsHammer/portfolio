@@ -15,6 +15,7 @@ OUTPUT = ROOT / "projects" / "project-status.json"
 PROJECTS = {
     "llmshield": "HuginnsHammer/LLMShield",
     "cloudsentry": "HuginnsHammer/CloudSentry",
+    "vantage": "HuginnsHammer/VANTAGE",
 }
 REQUIRED_LISTS = ("capabilities", "evidence", "limitations")
 MAX_ITEMS = 12
@@ -92,7 +93,7 @@ def main() -> int:
         print("Project metadata is already current.")
         return 0
     OUTPUT.write_text(rendered, encoding="utf-8")
-    print(f"Updated {OUTPUT.relative_to(ROOT)} from the two approved project sources.")
+    print(f"Updated {OUTPUT.relative_to(ROOT)} from the configured project sources.")
     return 0
 
 

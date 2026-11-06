@@ -62,6 +62,38 @@
         "url": "https://github.com/HuginnsHammer/CloudSentry/commit/6c3fd105ddd857d1d04d944b0bf4a55e9dcfec33"
       },
       "source_url": "https://github.com/HuginnsHammer/CloudSentry/blob/main/PORTFOLIO.json"
+    },
+    "vantage": {
+      "schema_version": 1,
+      "slug": "vantage",
+      "title": "VANTAGE",
+      "repository": "HuginnsHammer/VANTAGE",
+      "summary": "An early-stage continuous security exposure management platform designed for individual security workspaces and organization-scale exposure operations, with evidence-led assessment, strict authorization and hybrid deployment as core principles.",
+      "capabilities": [
+        "Vendor-neutral asset, approved-scope, scan, finding and evidence contracts with a scanner plugin protocol and scope-enforcing coordinator.",
+        "Explicitly confirmed local workspace assessment through a CLI integrated with CloudSentry; the current scanner path performs static IaC/container analysis and no network probing.",
+        "Persistent local finding lifecycle with stable deduplication, occurrence history, analyst dispositions, and safe resolution/reopening semantics.",
+        "Transparent finding priority based on severity, confidence and asset criticality; the score is a triage aid, not a probability of compromise.",
+        "PostgreSQL schema foundation for personal and organization tenants, OIDC subject identities, memberships, projects, environments, assets and approved scopes.",
+        "PostgreSQL row-level security, tenant-aware composite foreign keys, append-only audit-event trigger, Alembic migrations and real database integration tests."
+      ],
+      "evidence": [
+        "GitHub Actions runs Ruff, pytest, Alembic migration validation and PostgreSQL integration tests using a restricted non-superuser runtime role.",
+        "Architecture, threat model, tenancy contract, CLI guide and staged engineering roadmap are documented in the repository."
+      ],
+      "limitations": [
+        "Early engineering foundation; OIDC token validation, account provisioning, membership authorization services, authenticated API and web dashboard are not implemented.",
+        "The current scanner is local static IaC/container analysis only; passive external discovery, web/API checks and active network assessment are not yet available.",
+        "PostgreSQL currently stores the tenant/control-plane foundation; the finding lifecycle still uses a local SQLite adapter.",
+        "Distributed scanner nodes, durable job queue, attack-path analysis, remediation verification, enterprise SSO/SCIM and production operations controls remain future work."
+      ],
+      "latest_commit": {
+        "sha": "39ff236669cf56fe9d882bb468611be349246806",
+        "short_sha": "39ff236",
+        "date": "2026-11-06T12:44:00Z",
+        "url": "https://github.com/HuginnsHammer/VANTAGE/commit/39ff236669cf56fe9d882bb468611be349246806"
+      },
+      "source_url": "https://github.com/HuginnsHammer/VANTAGE/blob/main/PORTFOLIO.json"
     }
   }
 }

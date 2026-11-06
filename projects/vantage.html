@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101512">
+  <meta name="description" content="VANTAGE — an evidence-led security exposure management platform designed for personal security workspaces and organization-scale operations.">
+  <title>VANTAGE — Edward Mwaura</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <script src="../assets/js/site.js" defer></script>
+  <script src="../assets/js/project-sync.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="wordmark" href="../index.html"><span class="wordmark-mark">EM</span><span>EDWARD MWAURA<small>SECURITY · SYSTEMS · EVIDENCE</small></span></a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a aria-current="page" href="./index.html">Projects</a>
+        <a href="../resume.html">CV</a>
+        <a href="../about.html">About</a>
+        <a class="nav-contact" href="../contact.html">Contact ↗</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <p class="breadcrumb"><a href="./index.html">Projects</a> / VANTAGE</p>
+        <p class="eyebrow">CONTINUOUS SECURITY EXPOSURE MANAGEMENT · PYTHON · POSTGRESQL</p>
+        <h1 class="page-title">VANTAGE</h1>
+        <p class="page-lede">An early-stage security exposure management platform designed to help individuals and organizations discover what is exposed, understand what is at risk, and track whether security issues have actually been fixed.</p>
+        <p><a class="button button-primary" href="https://github.com/HuginnsHammer/VANTAGE">View source on GitHub ↗</a></p>
+      </div>
+    </section>
+    <section class="content-section">
+      <div class="container content-grid">
+        <article class="prose">
+          <div class="note-box project-sync-panel" data-project-sync="vantage" aria-live="polite">
+            <p>Loading the current project snapshot…</p>
+          </div>
+          <h2>The problem</h2>
+          <p>Security teams often work across disconnected scanners, spreadsheets and ticket queues. A scan can produce a list of weaknesses, but that alone does not tell a team which assets matter most, whether a finding is recurring, who owns the fix, or whether a remediation was verified.</p>
+          <p>VANTAGE is my attempt to build a broader continuous exposure management platform rather than another standalone scanner. Organizations are the primary audience; individuals should also be able to use a personal workspace to assess assets they own or are authorized to test.</p>
+          <h2>Product model</h2>
+          <ul>
+            <li><strong>Individual workspaces:</strong> a self-service place to assess personal websites, domains, repositories and infrastructure, understand evidence-backed findings, and follow practical remediation guidance.</li>
+            <li><strong>Organization workspaces:</strong> the main product direction, with isolated tenants, projects, environments, teams, governed assessment scopes, risk workflows and hybrid deployment options.</li>
+          </ul>
+          <p>Both audiences share the same authorization model. A personal account is not permission to scan arbitrary internet assets. Ownership verification and explicit scope approval are required before external assessment.</p>
+          <h2>What is implemented</h2>
+          <h3>Scanner contracts and authorization-aware orchestration</h3>
+          <p>VANTAGE defines vendor-neutral contracts for assets, approved scopes, scan requests, reports, findings and evidence. A scanner registry and coordinator check tenant, asset, scope, expiry, scanner allowlist and active-check permission before a scan can run. CloudSentry is integrated as the first specialist engine.</p>
+          <h3>A usable local assessment path</h3>
+          <p>The CLI can assess a local workspace after an authorization reference and exact interactive confirmation. The current scanner path performs static Terraform, Dockerfile and Docker Compose analysis; it does not perform network reconnaissance or exploit testing. Reports are exported as JSON without overwriting existing files.</p>
+          <h3>Finding lifecycle and prioritization</h3>
+          <p>An optional SQLite ledger tracks stable finding identity across assessments, occurrence counts, first and last seen timestamps, analyst dispositions, and lifecycle events. Findings can be reopened when they return. Only completed scans can resolve findings by absence; partial or failed scans cannot silently make an issue disappear. The transparent priority score uses severity, confidence and asset criticality, and is explicitly not a probability of compromise.</p>
+          <h3>PostgreSQL tenant foundation</h3>
+          <p>The PostgreSQL schema supports personal and organization tenants, OIDC issuer/subject identity records, memberships, projects, environments, assets, approved scopes and audit events. Composite foreign keys prevent cross-organization relationships. The initial migration enables and forces row-level security on tenant-owned tables, and a database trigger rejects updates or deletes of audit events.</p>
+          <h2>How I tested the isolation model</h2>
+          <p>GitHub Actions runs the migration against PostgreSQL 16 and exercises tenant boundaries using a restricted runtime role that is neither a superuser nor allowed to bypass row-level security. Integration tests verify that one tenant cannot read another tenant’s rows, cross-tenant writes are rejected, composite foreign keys prevent mismatched project references, and transaction-local tenant context does not leak into the next transaction.</p>
+          <p>The current CI run passed Ruff, Alembic migration validation and 32 tests. This is evidence for the implemented foundation, not a certification or independent security assessment.</p>
+          <h2>Architecture direction</h2>
+          <p>The intended platform separates a control plane from scanner execution. The control plane owns identity, organizations, assets, scope approvals, scan plans and findings. Customer-managed scanner nodes should connect outbound using short-lived credentials and execute bounded jobs in isolated workers. This supports a hosted service, customer-managed private nodes, or a fully self-hosted deployment.</p>
+          <h2>What is not implemented yet</h2>
+          <ul>
+            <li>OIDC login and token validation, account provisioning, organization invitations and membership authorization services.</li>
+            <li>Authenticated API endpoints and a web dashboard.</li>
+            <li>A PostgreSQL-backed finding lifecycle repository; the current lifecycle ledger remains a local SQLite adapter.</li>
+            <li>Passive external attack-surface discovery, web/API assessments, cloud identity posture and active network checks.</li>
+            <li>Distributed scanner-node enrollment, durable scan queue, quotas, retries and worker isolation.</li>
+            <li>Attack-path analysis, threat-intelligence correlation, remediation assignment and verification.</li>
+            <li>Enterprise SSO/SCIM, compliance reporting, high availability, disaster recovery and independent penetration testing.</li>
+          </ul>
+          <p>These are roadmap items, not existing capabilities. VANTAGE is an active engineering foundation and is not ready to handle production customer assets or sensitive enterprise environments.</p>
+          <h2>Why this project matters to me</h2>
+          <p>VANTAGE brings together the areas I want to work in: security engineering, infrastructure, evidence quality, backend architecture and secure multi-tenant systems. The goal is to make security results actionable and verifiable, not simply produce more alerts.</p>
+          <p><a href="https://github.com/HuginnsHammer/VANTAGE">Read the source, architecture, threat model, tenancy notes and roadmap ↗</a></p>
+        </article>
+        <aside class="content-aside">
+          <div class="side-card">
+            <h3>PROJECT AT A GLANCE</h3>
+            <p><strong>Focus</strong><br>Continuous exposure management</p>
+            <p><strong>Backend</strong><br>Python · Pydantic · SQLAlchemy</p>
+            <p><strong>Persistence</strong><br>PostgreSQL · Alembic · SQLite adapter</p>
+            <p><strong>Scanner integration</strong><br>CloudSentry</p>
+            <p><strong>Quality</strong><br>Pytest · Ruff · PostgreSQL CI</p>
+            <p><a href="https://github.com/HuginnsHammer/VANTAGE">GitHub repository ↗</a></p>
+          </div>
+          <div class="side-card">
+            <h3>ENGINEERING STATUS</h3>
+            <p>Early foundation. Local static assessment and finding lifecycle are implemented; tenant schema and database-enforced isolation are tested. Authentication, hosted API, dashboard, distributed workers and broader scanner coverage remain in development.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="footer-name" href="../index.html">Edward Mwaura <span>·</span> Portfolio</a>
+      <p>Cybersecurity and security tooling.</p>
+      <div class="footer-links"><a href="https://github.com/HuginnsHammer">GitHub ↗</a><a href="https://www.linkedin.com/in/edwardmugo">LinkedIn ↗</a><span>© <span data-year>2026</span></span></div>
+    </div>
+  </footer>
+</body>
+</html>
