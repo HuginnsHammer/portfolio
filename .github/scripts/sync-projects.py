@@ -2,6 +2,7 @@
 """Sync approved project metadata and latest public commit details into the portfolio."""
 from __future__ import annotations
 
+import base64
 import json
 import re
 import sys
@@ -28,13 +29,28 @@ def get_json(url: str):
         return json.load(response)
 
 
+def get_repository_metadata(repo: str) -> object:
+    response = get_json(
+        f"https://api.github.com/repos/{repo}/contents/PORTFOLIO.json?ref=main"
+    )
+    encoded = response.get("content")
+    if response.get("encoding") != "base64" or not isinstance(encoded, str):
+        raise ValueError(f"{repo}: GitHub API did not return base64 portfolio metadata")
+    try:
+        return json.loads(base64.b64decode(encoded).decode("utf-8"))
+    except (ValueError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise ValueError(f"{repo}: portfolio metadata is not valid UTF-8 JSON") from exc
+
+
 def validate_metadata(slug: str, repo: str, data: object) -> dict:
     if not isinstance(data, dict):
         raise ValueError(f"{repo}: PORTFOLIO.json must contain a JSON object")
     if data.get("schema_version") != 1:
         raise ValueError(f"{repo}: unsupported schema_version")
-    if data.get("slug") != slug or data.get("repository") != repo:
-        raise ValueError(f"{repo}: slug/repository does not match the configured source")
+    if data.get("slug") != slug:
+        raise ValueError(f"{repo}: expected slug {slug!r}, received {data.get('slug')!r}")
+    if data.get("repository") != repo:
+        raise ValueError(f"{repo}: expected repository {repo!r}, received {data.get('repository')!r}")
     for field in ("title", "summary"):
         value = data.get(field)
         if not isinstance(value, str) or not value.strip() or len(value) > MAX_TEXT:
@@ -60,7 +76,7 @@ def main() -> int:
     output = {"schema_version": 1, "projects": {}}
     for slug, repo in PROJECTS.items():
         try:
-            raw = get_json(f"https://raw.githubusercontent.com/{repo}/main/PORTFOLIO.json")
+            raw = get_repository_metadata(repo)
             metadata = validate_metadata(slug, repo, raw)
             commits = get_json(f"https://api.github.com/repos/{repo}/commits?per_page=1")
             if not isinstance(commits, list) or not commits:
