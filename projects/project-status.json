@@ -88,10 +88,10 @@
         "Distributed scanner nodes, durable job queue, attack-path analysis, remediation verification, enterprise SSO/SCIM and production operations controls remain future work."
       ],
       "latest_commit": {
-        "sha": "38b1880adafd5fa6e90e4b7f4ead9eada5dfb9a6",
-        "short_sha": "38b1880",
-        "date": "2026-11-07T19:58:59Z",
-        "url": "https://github.com/HuginnsHammer/VANTAGE/commit/38b1880adafd5fa6e90e4b7f4ead9eada5dfb9a6"
+        "sha": "339b245e8a56354e8a8701516a6374dcb84200c1",
+        "short_sha": "339b245",
+        "date": "2026-11-09T07:57:03Z",
+        "url": "https://github.com/HuginnsHammer/VANTAGE/commit/339b245e8a56354e8a8701516a6374dcb84200c1"
       },
       "source_url": "https://github.com/HuginnsHammer/VANTAGE/blob/main/PORTFOLIO.json"
     }
