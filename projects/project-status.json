@@ -25,10 +25,10 @@
         "Redaction is not complete anonymization; shared-key authentication is a baseline rather than a full identity system."
       ],
       "latest_commit": {
-        "sha": "d625b137aee5a43a34b396f371c6680d8b06ea87",
-        "short_sha": "d625b13",
-        "date": "2026-11-13T07:44:29Z",
-        "url": "https://github.com/HuginnsHammer/LLMShield/commit/d625b137aee5a43a34b396f371c6680d8b06ea87"
+        "sha": "8e0518b45331a8db3cde24c74da529e7c5c2d63a",
+        "short_sha": "8e0518b",
+        "date": "2026-11-18T19:18:03Z",
+        "url": "https://github.com/HuginnsHammer/LLMShield/commit/8e0518b45331a8db3cde24c74da529e7c5c2d63a"
       },
       "source_url": "https://github.com/HuginnsHammer/LLMShield/blob/main/PORTFOLIO.json"
     },
