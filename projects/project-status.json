@@ -56,10 +56,10 @@
         "The dashboard API accepts local filesystem paths and should remain bound to loopback for local development."
       ],
       "latest_commit": {
-        "sha": "0d8ca5985c2b962cd8873126a559b34a32414fd0",
-        "short_sha": "0d8ca59",
-        "date": "2026-11-16T20:33:36Z",
-        "url": "https://github.com/HuginnsHammer/CloudSentry/commit/0d8ca5985c2b962cd8873126a559b34a32414fd0"
+        "sha": "f7417c29a2e2a11bb0fb374abacf4990ce216725",
+        "short_sha": "f7417c2",
+        "date": "2026-11-20T19:04:08Z",
+        "url": "https://github.com/HuginnsHammer/CloudSentry/commit/f7417c29a2e2a11bb0fb374abacf4990ce216725"
       },
       "source_url": "https://github.com/HuginnsHammer/CloudSentry/blob/main/PORTFOLIO.json"
     },
